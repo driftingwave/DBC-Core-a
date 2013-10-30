@@ -1,0 +1,3 @@
+QuestionsController < ApplicationController
+
+end
