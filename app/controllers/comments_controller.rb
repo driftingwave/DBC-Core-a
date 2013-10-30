@@ -1,0 +1,3 @@
+CommentsController < ApplicationController
+
+end

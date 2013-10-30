@@ -1,0 +1,3 @@
+UserSessionsController < ApplicationController
+  
+end
