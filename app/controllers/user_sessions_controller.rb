@@ -1,3 +1,3 @@
-UserSessionsController < ApplicationController
+class UserSessionsController < ApplicationController
   
 end
