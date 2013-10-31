@@ -7,16 +7,18 @@ class UsersController < ApplicationController
   
 
   def create
-    @user = User.create(params[:user])
-    if @user.valid?
-      redirect_to user_path
+    @user = User.new(params[:user])
+    if @user.save
+      session[:logged_in] = true
+      redirect_to user_path(@user)
     else
       redirect_to home_index_path
     end
   end
 
   def show
-    @user = User.find(session[:user_id])
+    @user = User.find(params[:id])
+    @session = session[:user_id]
     render 'show'
   end
 

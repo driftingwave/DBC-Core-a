@@ -1,10 +1,10 @@
 module ApplicationHelper
 
   def session_fail
-    if current_user 
-      return false
+    if session[:logged_in]
+      return true
     else
-      true
+      return false
     end
   end
 
