@@ -26,6 +26,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(session[:user_id])
+
+    flash added for user update password
     users_topics = []
 
     @user.topics.each do |topic|
@@ -50,11 +52,20 @@ class UsersController < ApplicationController
         end
       end
     end
- 
+<<<<<<< HEAD
+
   if session[:logged_in]
     render 'show'
   else
     redirect_to home_index_path
+=======
+
+    if session[:logged_in]
+      render 'show'
+    else
+      redirect_to home_index_path
+    end
+>>>>>>> flash added for user update password
   end
 end
 
@@ -64,7 +75,19 @@ def profile
   render 'profile'
 end
 
+<<<<<<< HEAD
 def update
-  
+
 end
+=======
+  def update
+    @user = current_user
+    if params[:password] == nil || params[:password_confirmation] == nil
+      flash[:notice] = "Please enter a password"
+      redirect_to profile_path
+    else User.update(@user.id, params[:user])
+      redirect_to user_path(@user)
+    end
+  end
+>>>>>>> flash added for user update password
 end
