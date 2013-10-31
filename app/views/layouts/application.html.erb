@@ -7,6 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if session_fail? %>
+  <%= render "/layouts/navbar"%>
+  <% end %>
 
 <%= yield %>
 

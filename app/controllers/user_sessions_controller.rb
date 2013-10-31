@@ -1,19 +1,17 @@
 class UserSessionsController < ApplicationController
 
-  def new
-    @user_session = UserSession.new
-  end
-
   def create 
-    if @user && @user.password_digest == User.password_digest(params[:password])
-      session[:logged_in] = true
+    user = User.find_by_email(params[:user][:emai])
+
+    @user = user.authenticate(params[:user][:password])
+
+    if @user
       session[:user_id] = @user.id
-      redirect_to account_path
+      session[:logged_in] = true
+      redirect_to questions_path
     else
-      # @failed_login = true
-      render :new
+      @failed_login = true
     end
-  
   end
 
   def destroy
@@ -21,5 +19,4 @@ class UserSessionsController < ApplicationController
     session.clear
     redirect_to root_path
   end
-
 end
