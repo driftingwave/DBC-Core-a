@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
-
-
-  def index
-    @user = current_user
-  end
+  # include ActionView::Helpers::ApplicationHelper
 
   def new 
 
@@ -13,15 +9,19 @@ class UsersController < ApplicationController
   def create
     @user = User.create(params[:user])
     if @user.valid?
-      redirect_to 
+      redirect_to user_path
     else
       redirect_to home_index_path
     end
-    render 'new'
   end
 
   def show
-    render 'profile'
+    @user = User.find(session[:user_id])
+    render 'show'
+  end
+
+  def update
+
   end
 
 end

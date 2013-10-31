@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  def session_fail?
+  def session_fail
     if current_user 
       return false
     else
@@ -16,7 +16,4 @@ module ApplicationHelper
       return nil
     end
   end
-
-  helper_method :current_user
-  helper_method :session_fail?
 end
