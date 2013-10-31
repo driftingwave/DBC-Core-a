@@ -1,6 +1,6 @@
 <nav class="navbar">
-  <%= button_to "Logout", user_session_path(@user), :confirm => "ARE YOU SURE!?!?!?!?11111", method: :delete %>
-  <%= button_to "Ask", controller: "questions", :action => "new" %>
-  <%= button_to "Home", controller: "home", :action => "index" %>
+  <%= link_to "Logout", user_session_path(current_user), :confirm => "ARE YOU SURE!?!?!?!?11111", method: :delete %>
+  <%= link_to "Ask", new_question_path %>
+  <%= link_to "Profile", profile_path(current_user) %>
 </nav>
 

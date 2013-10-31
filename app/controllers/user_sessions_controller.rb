@@ -19,10 +19,14 @@ class UserSessionsController < ApplicationController
   end
 
   def destroy
-    unless session[:logged_in] = false
+    unless session[:logged_in] == false
       session[:logged_in] = false
       session[:user_id] = nil
       redirect_to home_index_path
     end
+  end
+
+  def profile
+
   end
 end
