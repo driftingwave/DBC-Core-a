@@ -6,6 +6,19 @@
 
   <div class="question_display">
 
+      <% @answers_to_be_displayed.each do |answer| %>
+        <%= root_question = answer.question %>
+          <div id="topic_and_question">
+            <h4><%= answer.topic %>: <%= root_question %></h4>
+          </div>><br>
+
+          <div id="summary_answers_comments">
+          </div>
+
+          <div id="answer_body">
+            <p><%= answer.body %></p>>
+          </div>>
+      <% end %>
   </div>
 
 
