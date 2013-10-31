@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # p params
 
     users_topics = []
 
@@ -40,6 +41,7 @@ class UsersController < ApplicationController
       end
     end
     if session[:logged_in]
+      p @user.id
       render 'show'
     else
       redirect_to home_index_path
@@ -48,7 +50,8 @@ class UsersController < ApplicationController
 
 
   def profile
-
+    @user = current_user
+    render 'profile'
   end
 
   def update
