@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
     answers_by_vote_total = Answer.order("vote_total DESC")
     answers_by_vote_total.each do |answer|
-        answers_by_vote_total_topic_ids << answer.topic.id
+      answers_by_vote_total_topic_ids << answer.topic.id
     end
 
     @answers_to_be_displayed = []
@@ -39,12 +39,19 @@ class UsersController < ApplicationController
         @answers_to_be_displayed << answers_by_vote_total[index]
       end
     end
-
-    render 'show'
+    if session[:logged_in]
+      render 'show'
+    else
+      redirect_to home_index_path
+    end
   end
 
+
+  def profile
+
+  end
 
   def update
+  
   end
-
 end
