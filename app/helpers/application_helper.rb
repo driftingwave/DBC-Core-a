@@ -25,4 +25,5 @@ module ApplicationHelper
       return user
     end
   end
+
 end
