@@ -4,8 +4,9 @@
     <p> First Name: <br> <%= f.text_field :first_name %> </p>
     <p> Last Name: <br> <%= f.text_field :last_name %> </p>
     <p> Username: <br> <%= f.text_field :username %> </p>
-    <p> Password: <br> <%= f.text_field :password %> </p>
-    <p> Confirm Password: <br> <%= f.text_field :password_confirmation %> </p>
+    <p> Email: <br> <%= f.email_field :email %> </p>
+    <p> Password: <br> <%= f.password_field :password %> </p>
+    <p> Confirm Password: <br> <%= f.password_field :password_confirmation %> </p>
     <%= f.submit :Signup %>
   <% end %>
 </div>

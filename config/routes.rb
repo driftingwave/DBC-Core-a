@@ -4,7 +4,7 @@ Quora::Application.routes.draw do
   resources :users
   resources :user_sessions
   resources :questions
-
+  get '/profile' => 'users#profile'
 
   root to: "home#index"
   

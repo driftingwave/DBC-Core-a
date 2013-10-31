@@ -11,15 +11,17 @@ class UsersController < ApplicationController
   
 
   def create
-    @user = User.new(params[:user])
-    if @user.save
-      flash[:notice] = "Signup Successful!"
+    @user = User.create(params[:user])
+    if @user.valid?
+      redirect_to 
     else
-      flash[:notice] = "Invalid signup"
+      redirect_to home_index_path
     end
     render 'new'
   end
 
-end
+  def show
+    render 'profile'
+  end
 
-#poop
+end

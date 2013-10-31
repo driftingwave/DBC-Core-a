@@ -1,0 +1,3 @@
+  <% if session_fail? %>
+  <%= render "/layouts/navbar"%>
+  <% end %>
