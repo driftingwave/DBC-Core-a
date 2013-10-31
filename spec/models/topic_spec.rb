@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe Topic do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it { should have_many(:questions) }
+  it { should have_many(:user_topics) }
+  it { should have_many(:users).through(:user_topics) }
+
 end

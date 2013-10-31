@@ -16,23 +16,23 @@ ActiveRecord::Schema.define(:version => 20131030215528) do
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
     t.text     "body"
-    t.integer  "responder_id"
+    t.integer  "user_id"
     t.integer  "vote_total"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "comments", :force => true do |t|
-    t.integer  "commenter_id"
+    t.integer  "user_id"
     t.integer  "answer_id"
     t.text     "body"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "questions", :force => true do |t|
     t.integer  "topic_id"
-    t.integer  "creator_id"
+    t.integer  "user_id"
     t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(:version => 20131030215528) do
 
   create_table "votes", :force => true do |t|
     t.integer  "answer_id"
-    t.integer  "voter_id"
+    t.integer  "user_id"
     t.integer  "type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

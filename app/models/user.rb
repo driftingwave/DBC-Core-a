@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :user_topics
   has_many :topics, through: :user_topics
-  has_many :created_questions, class_name: "Question", foreign_key: :creator_id
+  has_many :questions
   has_many :answers
   has_many :comments
   has_many :votes
