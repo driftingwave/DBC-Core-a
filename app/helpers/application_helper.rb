@@ -1,10 +1,10 @@
 module ApplicationHelper
 
-  def session_fail?
-    if current_user 
-      return false
+  def session_fail
+    if session[:logged_in]
+      return true
     else
-      true
+      return false
     end
   end
 
@@ -17,6 +17,12 @@ module ApplicationHelper
     end
   end
 
-  helper_method :current_user
-  helper_method :session_fail?
+  def find_user(email)
+    user = User.find_by_email(email)
+    if user.nil?
+      return false
+    else
+      return user
+    end
+  end
 end

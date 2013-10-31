@@ -1,4 +1,4 @@
 class ApplicationController < ActionController::Base
+  include ApplicationHelper
   protect_from_forgery
-  # helper_method :current_user
 end

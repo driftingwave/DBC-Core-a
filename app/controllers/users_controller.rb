@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
-
-
-  def index
-    @user = current_user
-  end
+  # include ActionView::Helpers::ApplicationHelper
 
   def new 
 
@@ -13,13 +9,21 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:notice] = "Signup Successful!"
+      session[:logged_in] = true
+      redirect_to user_path(@user)
     else
-      flash[:notice] = "Invalid signup"
+      redirect_to home_index_path
     end
-    render 'new'
+  end
+
+  def show
+    @user = User.find(params[:id])
+    @session = session[:user_id]
+    render 'show'
+  end
+
+  def update
+
   end
 
 end
-
-#poop
