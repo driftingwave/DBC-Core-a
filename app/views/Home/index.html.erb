@@ -1,0 +1,19 @@
+<!-- home index -->
+
+<h1 style="color:red;font-weight:bold;"><u>Welcome to CORA</u></h1>
+
+<div class="login">
+<%= form_for :user, url: user_sessions_path do |f| %>
+  <%= f.label :email%>
+  <%= f.text_field :email, :placeholder => "Your email here"%>
+  <%= f.label :email %>
+  <%= f.password_field :password, :placeholder => "Your password here"%>
+  <%= f.submit :LOGIN %>
+  <%end%>
+</div>
+
+<%= link_to "Sign Up User", controller: "users", :action => "new"%>
+
+<% if @failed_login %>
+<p style="color:red; font-weight:bold;"><%= "You've Failed." %></p>
+<% end %>
