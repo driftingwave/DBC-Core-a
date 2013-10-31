@@ -4,20 +4,23 @@
     <h3>Hello <%= @user.first_name%></h3>
   </div>
 
-  <div class="question_display">
+  <div class="display_question_block">
 
       <% @answers_to_be_displayed.each do |answer| %>
-        <%= root_question = answer.question %>
+        <% root_question = answer.question %>
           <div id="topic_and_question">
-            <h4><%= answer.topic %>: <%= root_question %></h4>
-          </div>><br>
-
-          <div id="summary_answers_comments">
+            <h4 class="display_question"><%= answer.topic.name %>: <%= root_question.body %></h4>
           </div>
 
-          <div id="answer_body">
-            <p><%= answer.body %></p>>
-          </div>>
+          <div id="summary_answers_comments">
+            <p>
+              <span id="no_of_answers"><%= root_question.answers.count %> answers</span><br>
+              <span id="answer_body">Answer: <%= answer.body %></span>
+              <span id="answer_authored_by">, posted by <%= answer.user.username %></span>
+              <span id="vote_count">, <%= answer.vote_total %> votes <a href="update_vote">vote up</a> <a href="update_vote">vote down</a></span><br>
+              <span id="no_of_comments"><%= root_question.comments.count %> comments</span>
+            </p>
+          </div>
       <% end %>
   </div>
 
