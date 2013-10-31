@@ -1,11 +1,11 @@
 class UserSessionsController < ApplicationController
 
   def create 
-    user = User.find_by_email(params[:user][:email])
-    p params[:user][:email]
-    params.inspect
-    p user.password
-    @user = user.authenticate(params[:user][:password])
+    user = find_user(params[:user][:email])
+
+    if user != false 
+      @user = user.authenticate(params[:user][:password])
+    end
 
     if @user
       session[:user_id] = @user.id
@@ -13,6 +13,7 @@ class UserSessionsController < ApplicationController
       redirect_to user_path(@user)
     else
       @failed_login = true
+      session.clear
       redirect_to home_index_path
     end
   end

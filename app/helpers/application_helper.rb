@@ -16,4 +16,13 @@ module ApplicationHelper
       return nil
     end
   end
+
+  def find_user(email)
+    user = User.find_by_email(email)
+    if user.nil?
+      return false
+    else
+      return user
+    end
+  end
 end
