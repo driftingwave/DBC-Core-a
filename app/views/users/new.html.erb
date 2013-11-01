@@ -10,3 +10,14 @@
     <%= f.submit :Signup %>
   <% end %>
 </div>
+
+
+  
+  
+  <% @topics.each do |topic| %>
+  <%= label_tag 'topic_'+topic.name, topic.name %>
+  <div><%= check_box_tag 'activated[topic.id]', topic.name -%></div>
+  <% end %>
+
+
+

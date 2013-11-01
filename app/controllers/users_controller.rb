@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   # include ActionView::Helpers::ApplicationHelper
 
   def new
-
+    @topics = Topic.all
   end
 
 
@@ -10,6 +10,8 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       session[:logged_in] = true
+      #most recent addition line 14 only
+      session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       redirect_to home_index_path
