@@ -6,5 +6,8 @@ class QuestionsController < ApplicationController
     @topics = User.topics
   end
 
+  def show
+    @question = Question.find(params[:id])
+  end
 
 end
