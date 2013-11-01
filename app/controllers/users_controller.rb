@@ -2,23 +2,25 @@ class UsersController < ApplicationController
   # include ActionView::Helpers::ApplicationHelper
 
   def new
+    @User = User.new
     @topics = Topic.all
   end
 
 
   def create
     @user = User.new(params[:user])
-        @topics_selected = params[:activated]
+    @topics_selected = params[:activated]
+
+    if @user.save && @topics_selected != nil
+      session[:logged_in] = true
+      session[:user_id] = @user.id
         @topics_selected.each do |topic|
           @user.topics << Topic.find_by_name(topic)
         end
-
-    if @user.save
-      session[:logged_in] = true
-      session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      redirect_to home_index_path
+      flash[:error] = "Something went wrong with your Sign Up"
+      redirect_to new_user_path
     end
   end
 

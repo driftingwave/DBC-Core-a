@@ -14,6 +14,7 @@ class UserSessionsController < ApplicationController
     else
       @failed_login = true
       session.clear
+      flash[:error] = 'Your Email and/or Password is Incorrect'
       redirect_to home_index_path
     end
   end

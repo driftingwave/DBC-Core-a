@@ -10,6 +10,7 @@
   <%= f.password_field :password, :placeholder => "Your password here"%>
   <%= f.submit :LOGIN %>
   <%end%>
+  <h3><%= flash[:error] %></h3>
 </div>
 
 <%= link_to "Sign Up User", controller: "users", :action => "new"%>
