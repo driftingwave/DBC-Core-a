@@ -14,6 +14,7 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner', '~> 1.0.1'
   gem 'bcrypt-ruby', '~> 3.0.0'
+  # gem 'factory_girl_rails'
 end
 
 
