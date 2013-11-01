@@ -8,7 +8,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-        p params[:activated]
+        @topics_selected = params[:activated]
+        @topics_selected.each do |topic|
+          @user.topics << Topic.find_by_name(topic)
+        end
+
     puts "................................"
     if @user.save
       session[:logged_in] = true
