@@ -1,5 +1,6 @@
 <div class="sign_up">
   <h1>Sign Up</h1>
+  <h2> <%= flash[:error] %> </h2>
   <%= form_for(:user, url: {action: 'create'}) do |f| %>
     <p> First Name: <br> <%= f.text_field :first_name %> </p>
     <p> Last Name: <br> <%= f.text_field :last_name %> </p>
