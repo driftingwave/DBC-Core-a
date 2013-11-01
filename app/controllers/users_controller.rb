@@ -52,36 +52,24 @@ class UsersController < ApplicationController
         end
       end
     end
-<<<<<<< HEAD
-
-  if session[:logged_in]
-    render 'show'
-  else
-    redirect_to home_index_path
-=======
 
     if session[:logged_in]
       render 'show'
     else
       redirect_to home_index_path
     end
->>>>>>> flash added for user update password
   end
-end
 
+  def profile
+    @user = current_user
+    @topics = Topic.all
+    @display_unselected_topics = Topic.all - @user.topics
+    render 'profile'
+  end
 
-def profile
-  @user = current_user
-  render 'profile'
-end
-
-<<<<<<< HEAD
-def update
-
-end
-=======
   def update
     @user = current_user
+
     if params[:password] == ""
       flash[:notice] = "Please enter a password"
       redirect_to profile_path
@@ -89,5 +77,4 @@ end
       redirect_to user_path(@user)
     end
   end
->>>>>>> flash added for user update password
 end
