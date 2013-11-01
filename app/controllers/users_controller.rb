@@ -8,6 +8,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+        p params[:activated]
+    puts "................................"
     if @user.save
       session[:logged_in] = true
       #most recent addition line 14 only
@@ -20,8 +22,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # p params
-
     users_topics = []
 
     @user.topics.each do |topic|
