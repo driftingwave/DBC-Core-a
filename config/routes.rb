@@ -5,10 +5,12 @@ Quora::Application.routes.draw do
   resources :users
   resources :user_sessions
   resources :questions
+  resources :votes
+  post "/questions/up", as: "up_question"
 
 
   root to: "home#index"
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

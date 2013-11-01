@@ -1,0 +1,16 @@
+<h2><%= @question.body%></h2>
+
+
+<ul>
+  <%@question.answers.each do |answer|%>
+  <li>
+    <div class="answer"><%= answer.body%></div>
+    <div class="responder">Posted By: <%=User.find(answer.user_id).username.capitalize%></div>
+    <div class="votes">Total Votes: <%= answer.vote_total %></div>
+
+    <div class="up"><%= link_to image_tag('thumbs-up.pgn', size: '16x20'), questions_path%></div>
+
+
+  </li>
+  <% end %>
+</ul>
