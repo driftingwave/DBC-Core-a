@@ -8,6 +8,7 @@
     <div class="responder">Posted By: <%=User.find(answer.user_id).username.capitalize%></div>
     <div class="votes">Total Votes: <%= answer.vote_total %></div>
     <div class="up"><%= image_tag("thumbs-down.pgn", size: "16x20") %></div>
+    <div class="down"><%= image_tag("thumbs-up.pgn", size: "16x20") %></div>
 
   </li>
   <% end %>
