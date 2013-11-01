@@ -1,6 +1,6 @@
 <div id='user_update_form'>
 
-  <%= form_for(:user, :method => (:put), url: {action: 'update'}) do |f| %>
+  <%= form_for(:user, url: {action: 'update'}) do |f| %>
     <%= f.label :first_name %>:
     <%= f.text_field :first_name %><br />
 
@@ -19,13 +19,7 @@
     <%= f.label :password_confirmation %>:
     <%= f.password_field :password_confirmation %><br />
 
-    <% if flash[:notice] %>
-      <div class="notice"><h3 style="color:red"><%= flash[:notice] %></h3></div>
-    <% end %>
-
     <%= f.submit :Update%>
-
-
 
   <% end %>
 
