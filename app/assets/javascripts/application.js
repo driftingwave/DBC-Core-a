@@ -13,3 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+ 
+$(document).ready(function() {
+  $("#ask_button").click(function(e) {
+    e.preventDefault();
+    $("#new_question").slideToggle();
+  });
+ });
