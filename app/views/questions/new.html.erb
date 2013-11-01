@@ -1,1 +1,6 @@
 <h1> Where Are Questions by User's Topic is </h1>
+
+<%= form_for @question do |f| %>
+ <%= f.text_field :body, :placeholder => "Enter your question here!"  %><br />
+  <%= f.submit %>
+<% end %>
