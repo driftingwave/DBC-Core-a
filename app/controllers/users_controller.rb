@@ -64,7 +64,7 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    if params[:password] == nil || params[:password_confirmation] == nil
+    if params[:password] == ""
       flash[:notice] = "Please enter a password"
       redirect_to profile_path
     else User.update(@user.id, params[:user])
