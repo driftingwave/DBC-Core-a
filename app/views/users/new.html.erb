@@ -7,6 +7,17 @@
     <p> Email: <br> <%= f.email_field :email %> </p>
     <p> Password: <br> <%= f.password_field :password %> </p>
     <p> Confirm Password: <br> <%= f.password_field :password_confirmation %> </p>
-    <%= f.submit :Signup %>
-  <% end %>
+      <% @topics.each do |topic| %>
+      <%= label_tag 'topic_'+topic.name, topic.name %>
+    <div><%= check_box_tag 'activated[]', topic.name -%></div>
+      <% end %>
+      <%= f.submit :Signup %>
+      <% end %>
 </div>
+
+
+  
+  
+
+
+
