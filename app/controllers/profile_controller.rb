@@ -69,3 +69,4 @@ class ProfileController < ApplicationController
     # impletment feature: change password
   end
 end
+
