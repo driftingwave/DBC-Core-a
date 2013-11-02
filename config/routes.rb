@@ -4,6 +4,8 @@ Quora::Application.routes.draw do
   resources :users
   get "/profile/:id" => "users#profile", :as => :profile
 
+  resources :profile
+
   resources :user_sessions
   resources :questions
   resources :votes

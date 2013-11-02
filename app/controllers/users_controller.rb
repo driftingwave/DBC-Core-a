@@ -59,26 +59,17 @@ class UsersController < ApplicationController
 
 
   def profile
+
+    # path name: profile
+    # method: GET
+    # url: /profile/:id(.:format)
+    # action: users#profile
+
     @user = current_user
 
     @topics = Topic.all
     @display_unselected_topics = Topic.all - @user.topics
     # render 'profile'
-    end
-
-
   end
-
-  def update
-    @user = current_user
-
-
-
-    if params[:password] == ""
-      flash[:notice] = "Please enter a password"
-      redirect_to profile_path
-    else User.update(@user.id, params[:user])
-      redirect_to user_path(@user)
-    end
 
 end
