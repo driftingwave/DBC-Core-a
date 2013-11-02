@@ -1,35 +1,40 @@
 $(document).ready(function(){
-  $('.up').on('click', function(){
+  $('#up').on('click', function(event){
+    event.preventDefault();
 
-    var answer = $("span[id='answer']");
+    // var answer = $("span[id='answer']");
 
-    var buttonClass = $('this').attr('class'); 
+    var voteClass = $(this).attr('class'); 
 
-    var answerFlagged = $("span[class= "+ buttonClass +"]")
+    var answerFlagged = $("span[class= "+ voteClass +"]")
 
     var answerId = answerFlagged.text()
 
-    if ($('this').text("up"))
+    var data = {answer_id: answerId, vote_type: -1}
+    
+    if ($('this').text("vote up"))
     {
-      var data = {answer_id: answerId, type: 1}
-      var url = '/questions/up/'
+      url = "/questions/up/"
 
       $.post(url, data, function(response){
-
-
-      })
-    }
-
-    else 
-    {
-      var dataDown = {answer_id: answerId, type: -1}
-      $.post(url, dataDown, function(){
+        console.log(data)
 
       })
     }
+
+    // else if ($('this').text("vote down"))
+    // {
+    //   var dataDown = {answer_id: answerId, vote_type: -1}
+    //   $.post(url, dataDown, function(){
+    //    console.log(response)
+    //  })
+
+    // }
   })
 })
 
 // alternative for selecting specific links
 // $('#vote_count a:nth-child(1)')
 // $('#vote_count a:nth-child(1)').attr('class')
+
+

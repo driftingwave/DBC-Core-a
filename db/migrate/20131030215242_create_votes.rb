@@ -3,9 +3,29 @@ class CreateVotes < ActiveRecord::Migration
     create_table :votes do |t|
       t.integer :answer_id
       t.integer :user_id
-      t.integer :type
+      t.integer :vote_type
 
       t.timestamps
     end
   end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

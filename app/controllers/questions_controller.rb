@@ -19,8 +19,8 @@ class QuestionsController < ApplicationController
 
 
   def up
-    @vote = Vote.new(params[:answer_id])
-    
+    @vote = Vote.create(answer_id: params[:answer_id], vote_type: params[:vote_type])
 
+    render 'up', layout: false
   end
 end
