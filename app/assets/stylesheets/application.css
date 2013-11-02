@@ -1,3 +1,7 @@
+.error{
+	color: red;
+}
+
 .navbar{
 	background-color: black;
 	line-height: 40px;
@@ -15,5 +19,5 @@
 .navbar a:last-child{
 	border: none;
 	float: right;
-	padding: 0px 40px; 
+	padding: 0px 40px;
 }

@@ -69,7 +69,7 @@ class UsersController < ApplicationController
 
     @topics = Topic.all
     @display_unselected_topics = Topic.all - @user.topics
-    # render 'profile'
+    render 'profile'
   end
 
 end
