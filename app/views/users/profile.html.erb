@@ -1,6 +1,7 @@
 <div id='user_update_form'>
 
-  <%= form_for(:user, :method => (:put), url: {action: 'update'}) do |f| %>
+  <%= form_for @user, :as => :profile, url: profile_path(@user), :method => :put do |f| %>
+
     <%= f.label :first_name %>:
     <%= f.text_field :first_name %><br />
 
@@ -18,27 +19,30 @@
 
     <%= f.label :password_confirmation %>:
     <%= f.password_field :password_confirmation %><br />
-    
-    <p> Topics of Interest: </p>
-    <% @user.topics.each do |topic| %>
-      <%= check_box_tag 'activated[]', topic.name, checked=true %>
-      <%= label_tag 'topic_'+topic.name, topic.name %><br>
 
-    <% end %>
+    <div id=topics_of_interest_selection>
 
-    <% @display_unselected_topics.each do |topic| %>
-      <%= check_box_tag 'deactivated[]', topic.name %>
-      <%= label_tag 'topic_'+topic.name, topic.name %><br>
-    
+      <p> Topics of Interest: </p>
+      <% @user.topics.each do |topic| %>
+        <%= check_box_tag 'activated[]', topic.name, checked=true %>
+        <%= label_tag 'topic_'+topic.name, topic.name %><br>
       <% end %>
 
-    <% if flash[:notice] %>
-      <div class="notice"><h3 style="color:red"><%= flash[:notice] %></h3></div>
-    <% end %>
+      <% @display_unselected_topics.each do |topic| %>
+        <%= check_box_tag 'deactivated[]', topic.name %>
+        <%= label_tag 'topic_'+topic.name, topic.name %><br>
+      <% end %>
 
-    <p><%= f.submit :Update%>
+    </div>
+
+    <%= f.submit :Update%>
 
   <% end %>
 
 </div>
 
+<!--     <% if flash[:notice] %>
+      <div class="notice"><h3 style="color:red"><%= flash[:notice] %></h3></div>
+    <% end %>
+
+ -->
