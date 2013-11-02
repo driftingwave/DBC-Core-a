@@ -30,16 +30,14 @@ class ProfileController < ApplicationController
     end
 
     # user case invalid email
-    if  new_profile["email"] != "" &&
-       (new_profile["email"] =~ /\w+@\w+\.\w{2,3}/).nil?
-      flash[:error] = "Invalid email or password"
-      puts "!!!!!!!!!!!!!!!!!!!!!!!!!"
-      p @error
-      puts "!!!!!!!!!!!!!!!!!!!!!!!!!"
-      # render 'profile'
-      redirect_to profile_path(@user)
-    else
-      redirect_to user_path(@user)
+    if new_profile["email"] != ""
+      if (new_profile["email"] =~ /\w+@\w+\.\w{2,3}/).nil?
+        flash[:error] = "Invalid email or password"
+        redirect_to profile_path(@user)
+      else
+        @user.update_attribute(:email, new_profile[:email])
+        redirect_to user_path(@user)
+      end
     end
 
 
