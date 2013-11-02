@@ -1,1 +1,44 @@
-<h1> Profile</h1>
+<div id='user_update_form'>
+
+  <%= form_for(:user, :method => (:put), url: {action: 'update'}) do |f| %>
+    <%= f.label :first_name %>:
+    <%= f.text_field :first_name %><br />
+
+    <%= f.label :last_name %>:
+    <%= f.text_field :last_name %><br />
+
+    <%= f.label :username %>:
+    <%= f.text_field :username %><br />
+
+    <%= f.label :email %>:
+    <%= f.text_field :email %><br />
+
+    <%= f.label :password %>:
+    <%= f.password_field :password %><br />
+
+    <%= f.label :password_confirmation %>:
+    <%= f.password_field :password_confirmation %><br />
+    
+    <p> Topics of Interest: </p>
+    <% @user.topics.each do |topic| %>
+      <%= check_box_tag 'activated[]', topic.name, checked=true %>
+      <%= label_tag 'topic_'+topic.name, topic.name %><br>
+
+    <% end %>
+
+    <% @display_unselected_topics.each do |topic| %>
+      <%= check_box_tag 'deactivated[]', topic.name %>
+      <%= label_tag 'topic_'+topic.name, topic.name %><br>
+    
+      <% end %>
+
+    <% if flash[:notice] %>
+      <div class="notice"><h3 style="color:red"><%= flash[:notice] %></h3></div>
+    <% end %>
+
+    <p><%= f.submit :Update%>
+
+  <% end %>
+
+</div>
+
