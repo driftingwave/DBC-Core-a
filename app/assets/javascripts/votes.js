@@ -15,15 +15,17 @@ $(document).ready(function(){
       var url = '/questions/up/'
 
       $.post(url, data, function(response){
-        
-        
+
+
       })
     }
 
     else 
     {
       var dataDown = {answer_id: answerId, type: -1}
-      $.post(url, dataDown,)
+      $.post(url, dataDown, function(){
+        
+      })
     }
   })
 })
