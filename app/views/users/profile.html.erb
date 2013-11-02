@@ -18,11 +18,11 @@
     <%= f.password_field :password %><br />
 
     <%= f.label :password_confirmation %>:
-    <%= f.password_field :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %><br /><br />
 
     <div id=topics_of_interest_selection>
 
-      <p> Topics of Interest: </p>
+      Topics of Interest:<br>
       <% @user.topics.each do |topic| %>
         <%= check_box_tag 'activated[]', topic.name, checked=true %>
         <%= label_tag 'topic_'+topic.name, topic.name %><br>
@@ -33,16 +33,13 @@
         <%= label_tag 'topic_'+topic.name, topic.name %><br>
       <% end %>
 
-    </div>
+    </div><br>
 
     <%= f.submit :Update%>
 
-  <% end %>
+  <% end %><br>
+
+  <div class="error"> <%= flash[:error] %> </div>
 
 </div>
 
-<!--     <% if flash[:notice] %>
-      <div class="notice"><h3 style="color:red"><%= flash[:notice] %></h3></div>
-    <% end %>
-
- -->
