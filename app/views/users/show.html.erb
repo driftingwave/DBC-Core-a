@@ -6,23 +6,25 @@
 
   <div class="display_question_block">
 
-      <% @answers_to_be_displayed.each do |answer| %>
-        <% root_question = answer.question %>
-          <div id="topic_and_question">
-            <h4 class="display_question"><%= answer.topic.name %>: <%= link_to(root_question.body, question_path(answer) )%></h4>
-          </div>
+    <% @counter = 0 %>
+    <% @answers_to_be_displayed.each do |answer| %>
+    <% @counter += 1 %>
+    <% root_question = answer.question %>
+    <div id="topic_and_question">
+      <h4 class="display_question"><%= answer.topic.name %>: <%= link_to(root_question.body, question_path(answer) )%></h4>
+    </div>
 
-          <div id="summary_answers_comments">
-            <p>
-               <span id="answer"><%= answer.id %></span><br>
-              <span id="no_of_answers"><%= root_question.answers.count %> answers</span><br>
-              <span id="answer_body">Answer: <%= answer.body %></span>
-              <span id="answer_authored_by">, posted by <%= answer.user.username %></span>
-              <span id="vote_count">, <%= answer.vote_total %> votes <a href="update_vote">vote up</a> <a href="update_vote">vote down</a></span><br>
-              <span id="no_of_comments"><%= root_question.comments.count %> comments</span>
-            </p>
-          </div>
-      <% end %>
-  </div>
+    <div id="summary_answers_comments">
+      <p>
+       <span id="answer" class="<%= @counter %>"><%= answer.id %></span><br>
+       <span id="no_of_answers"><%= root_question.answers.count %> answers</span><br>
+       <span id="answer_body">Answer: <%= answer.body %></span>
+       <span id="answer_authored_by">, posted by <%= answer.user.username %></span>
+       <span id="vote_count">, <%= answer.vote_total %> votes <a class="<%= @counter %>" href="update_vote">vote up</a> <a class="<%= @counter %>" href="update_vote">vote down</a></span><br>
+       <span id="no_of_comments"><%= root_question.comments.count %> comments</span>
+     </p>
+   </div>
+   <% end %>
+ </div>
 
 </div>

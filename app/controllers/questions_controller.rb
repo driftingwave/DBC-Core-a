@@ -19,6 +19,8 @@ class QuestionsController < ApplicationController
 
 
   def up
-    Vote.new(params[:answer_id])
+    @vote = Vote.new(params[:answer_id])
+    
+
   end
 end
