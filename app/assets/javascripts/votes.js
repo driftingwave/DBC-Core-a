@@ -5,7 +5,7 @@ $(document).ready(function(){
 
     var buttonClass = $('this').attr('class'); 
 
-    var answerFlagged = answer.class(buttonClass);
+    var answerFlagged = $("span[class= "+ buttonClass +"]")
 
     var answerId = answerFlagged.text()
 
@@ -24,9 +24,12 @@ $(document).ready(function(){
     {
       var dataDown = {answer_id: answerId, type: -1}
       $.post(url, dataDown, function(){
-        
+
       })
     }
   })
 })
 
+// alternative for selecting specific links
+// $('#vote_count a:nth-child(1)')
+// $('#vote_count a:nth-child(1)').attr('class')
