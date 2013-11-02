@@ -14,6 +14,7 @@
 
           <div id="summary_answers_comments">
             <p>
+               <span id="answer"><%= answer.id %></span><br>
               <span id="no_of_answers"><%= root_question.answers.count %> answers</span><br>
               <span id="answer_body">Answer: <%= answer.body %></span>
               <span id="answer_authored_by">, posted by <%= answer.user.username %></span>
