@@ -8,15 +8,15 @@ Topic.create name: "Politics"
 Topic.create name: "Economics"
 Topic.create name: "Culture"
 
-UserTopic.create user_id: rand(1..3), topic_id: rand(1..5)
-UserTopic.create user_id: rand(1..3), topic_id: rand(1..5)
-UserTopic.create user_id: rand(1..3), topic_id: rand(1..5)
-UserTopic.create user_id: rand(1..3), topic_id: rand(1..5)
-UserTopic.create user_id: rand(1..3), topic_id: rand(1..5)
-UserTopic.create user_id: rand(1..3), topic_id: rand(1..5)
-UserTopic.create user_id: rand(1..3), topic_id: rand(1..5)
-UserTopic.create user_id: rand(1..3), topic_id: rand(1..5)
-UserTopic.create user_id: rand(1..3), topic_id: rand(1..5)
+UserTopic.create user_id: 1, topic_id: rand(1..5)
+UserTopic.create user_id: 1, topic_id: rand(1..5)
+UserTopic.create user_id: 1, topic_id: rand(1..5)
+UserTopic.create user_id: 2, topic_id: rand(1..5)
+UserTopic.create user_id: 2, topic_id: rand(1..5)
+UserTopic.create user_id: 2, topic_id: rand(1..5)
+UserTopic.create user_id: 3, topic_id: rand(1..5)
+UserTopic.create user_id: 3, topic_id: rand(1..5)
+UserTopic.create user_id: 3, topic_id: rand(1..5)
 
 Question.create topic_id: rand(1..5), user_id: rand(1..3), body: "What is the answer to the universe?"
 Question.create topic_id: rand(1..5), user_id: rand(1..3), body: "What is the answer to the moon?"
