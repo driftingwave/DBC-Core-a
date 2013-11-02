@@ -44,6 +44,8 @@ class UsersController < ApplicationController
     answers_by_vote_total_topic_ids.each_with_index do |topic_id, index|
       if users_topics.include?(topic_id)
         @answers_to_be_displayed << answers_by_vote_total[index]
+    p "HEEEEEEEEEEEEEYYYYYYYYYY" 
+    p @answers_to_be_displayed
       end
     end
     if session[:logged_in]

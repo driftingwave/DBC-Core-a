@@ -1,35 +1,40 @@
 $(document).ready(function(){
-  $('#up').on('click', function(event){
+  $('.up').on('click', function(event){
     event.preventDefault();
 
-    // var answer = $("span[id='answer']");
+    var voteId = $(this).attr('id'); 
 
-    var voteClass = $(this).attr('class'); 
+    var answerFlagged = $("span[id= "+ voteId +"]")
 
-    var answerFlagged = $("span[class= "+ voteClass +"]")
+    var answerId = answerFlagged.text()
+
+    var data = {answer_id: answerId, vote_type: 1}
+    
+    url = "/questions/up/"
+
+    $.post(url, data, function(response){
+      console.log(data)
+
+    })
+  })
+
+  $('.down').on('click', function(event){
+    event.preventDefault();
+
+    var voteId = $(this).attr('id'); 
+
+    var answerFlagged = $("span[id= "+ voteId +"]")
 
     var answerId = answerFlagged.text()
 
     var data = {answer_id: answerId, vote_type: -1}
     
-    if ($('this').text("vote up"))
-    {
-      url = "/questions/up/"
+    url = "/questions/up/"
 
-      $.post(url, data, function(response){
-        console.log(data)
+    $.post(url, data, function(response){
+      console.log(data)
 
-      })
-    }
-
-    // else if ($('this').text("vote down"))
-    // {
-    //   var dataDown = {answer_id: answerId, vote_type: -1}
-    //   $.post(url, dataDown, function(){
-    //    console.log(response)
-    //  })
-
-    // }
+    })
   })
 })
 

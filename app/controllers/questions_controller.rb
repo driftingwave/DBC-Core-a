@@ -1,8 +1,8 @@
 class QuestionsController < ApplicationController
   def index
-    p params
-      Vote.new(params[:answer])
-      redirect question_path(@question)
+    @question = Question.find(params[:id])
+    Vote.new(params[:answer])
+    redirect question_path(@question)
   end
 
   def new
@@ -12,8 +12,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
-
+    @question = Question.find(params[:id]) 
 
   end
 
