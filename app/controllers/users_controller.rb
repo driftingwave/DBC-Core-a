@@ -26,8 +26,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(session[:user_id])
-
-    flash added for user update password
     users_topics = []
 
     @user.topics.each do |topic|
@@ -35,8 +33,8 @@ class UsersController < ApplicationController
     end
 
     answers_by_vote_total_topic_ids = []
-
     answers_by_vote_total = Answer.order("vote_total DESC")
+
     answers_by_vote_total.each do |answer|
       answers_by_vote_total_topic_ids << answer.topic.id
     end
@@ -65,16 +63,5 @@ class UsersController < ApplicationController
     @topics = Topic.all
     @display_unselected_topics = Topic.all - @user.topics
     render 'profile'
-  end
-
-  def update
-    @user = current_user
-
-    if params[:password] == ""
-      flash[:notice] = "Please enter a password"
-      redirect_to profile_path
-    else User.update(@user.id, params[:user])
-      redirect_to user_path(@user)
-    end
   end
 end

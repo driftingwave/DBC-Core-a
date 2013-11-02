@@ -1,11 +1,11 @@
 User.create first_name: "Ryan", last_name: "Kelley", username: "rskelley9", email: "rskelley9@gmail.com", password: "password"
 User.create first_name: "bob", last_name: "bob", username: "bob", email: "bob@bob.bob", password: "bobbob"
 
-# 20.times do 
+# 20.times do
 
 # first_name = Faker::Name.first_name
 # last_name = Faker::Name.last_name
-# username = (Faker::Name.first_name) + "#{rand(1..1000)}" 
+# username = (Faker::Name.first_name) + "#{rand(1..1000)}"
 # email = Faker::Internet.email
 # password = "password"
 
@@ -29,17 +29,17 @@ Topic.create name: "Culture"
 #   UserTopic.create user_id: user_id.sample, topic_id: topic_id.sample
 # end
 
-UserTopic.create user_id: rand(1..3), topic_id: rand(1..5)
-UserTopic.create user_id: rand(1..3), topic_id: rand(1..5)
-UserTopic.create user_id: rand(1..3), topic_id: rand(1..5)
-UserTopic.create user_id: rand(1..3), topic_id: rand(1..5)
-UserTopic.create user_id: rand(1..3), topic_id: rand(1..5)
-UserTopic.create user_id: rand(1..3), topic_id: rand(1..5)
-UserTopic.create user_id: rand(1..3), topic_id: rand(1..5)
-UserTopic.create user_id: rand(1..3), topic_id: rand(1..5)
-UserTopic.create user_id: rand(1..3), topic_id: rand(1..5)
+UserTopic.create user_id: 1, topic_id: rand(1..5)
+UserTopic.create user_id: 1, topic_id: rand(1..5)
+UserTopic.create user_id: 1, topic_id: rand(1..5)
+UserTopic.create user_id: 2, topic_id: rand(1..5)
+UserTopic.create user_id: 2, topic_id: rand(1..5)
+UserTopic.create user_id: 2, topic_id: rand(1..5)
+UserTopic.create user_id: 3, topic_id: rand(1..5)
+UserTopic.create user_id: 3, topic_id: rand(1..5)
+UserTopic.create user_id: 3, topic_id: rand(1..5)
 
-# 80.times do 
+# 80.times do
 # Question.create topic_id: topic_id, user_id: user_id, body: Faker:
 
 # end
