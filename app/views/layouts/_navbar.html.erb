@@ -2,7 +2,7 @@
 	<%= link_to "Home", user_path(current_user) %>
   <%= link_to "Ask", new_question_path %>
   <%= link_to "Profile", profile_path(current_user) %>
-  <%= link_to "Logout", user_session_path(current_user), :confirm => "ARE YOU SURE!?!?!?!?11111", method: :delete %>
+  <%= link_to "Logout", user_session_path(current_user), :confirm => "ARE YOU SURE YOU WANT TO LOGOUT?", method: :delete %>
   <%= link_to 'Get yo question on!' %>
 </nav>
 

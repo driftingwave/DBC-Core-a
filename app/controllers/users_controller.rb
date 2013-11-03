@@ -49,10 +49,6 @@ class UsersController < ApplicationController
           @answers_to_be_displayed << answers_by_vote_total[index]
         end
       end
-
-
-      p "HEEEEEEEEEEEEEYYYYYYYYYY" 
-      p @answers_to_be_displayed
     end
  
   if session[:logged_in]
