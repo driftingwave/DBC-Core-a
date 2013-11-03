@@ -49,7 +49,7 @@ class ProfileController < ApplicationController
 
     user_topic_names.uniq
     selected_topic_names = []
-    selected_topic_names << (params["activated"])
+    selected_topic_names.push(params["activated"]) if params["activated"]
     selected_topic_names.push(params["deactivated"]) if params["deactivated"]
     selected_topic_names.flatten!
 
