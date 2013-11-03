@@ -25,7 +25,6 @@ Topic.create name: "Culture"
 # 30.times do
 #   user_id = (1..20).to_a
 #   topic_id = (1..5).to_a
-
 #   UserTopic.create user_id: user_id.sample, topic_id: topic_id.sample
 # end
 
@@ -40,8 +39,7 @@ UserTopic.create user_id: 3, topic_id: 3
 UserTopic.create user_id: 3, topic_id: 4
 
 # 80.times do
-# Question.create topic_id: topic_id, user_id: user_id, body: Faker:
-
+#   Question.create topic_id: topic_id, user_id: user_id, body: Faker:
 # end
 
 Question.create topic_id: rand(1..5), user_id: rand(1..3), body: "What is the answer to the universe?"
