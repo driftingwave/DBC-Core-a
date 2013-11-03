@@ -7,6 +7,7 @@ Quora::Application.routes.draw do
   resources :questions
   resources :votes
   post "/questions/up", as: "up_question"
+   get "/questions/up", as: "up_question"
 
 
   root to: "home#index"

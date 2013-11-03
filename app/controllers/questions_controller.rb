@@ -1,8 +1,8 @@
 class QuestionsController < ApplicationController
   def index
-    p params
-      Vote.new(params[:answer])
-      redirect question_path(@question)
+    @question = Question.find(params[:id])
+    Vote.new(params[:answer])
+    redirect question_path(@question)
   end
 
   def new
@@ -12,13 +12,17 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
-
+    @question = Question.find(params[:id]) 
 
   end
 
 
   def up
-    Vote.new(params[:answer_id])
+    @vote = Vote.create(answer_id: params[:answer_id], user_id: current_user.id, vote_type: params[:vote_type])
+    answer = Answer.find(params[:answer_id])
+    @vote_total = answer.vote_total += @vote.vote_type
+    Answer.update(answer.id, vote_total: @vote_total )
+
+    render :json => {:total => @vote_total } 
   end
 end
