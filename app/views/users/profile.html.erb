@@ -1,1 +1,41 @@
-<h1> Profile</h1>
+<div id='user_update_form'>
+
+  <%= form_for @user, :as => :profile, url: profile_path(@user), :method => :put do |f| %>
+
+    <h3>Update your details:</h3>
+
+    <%= f.label :first_name %>:
+    <%= f.text_field :first_name %><br />
+
+    <%= f.label :last_name %>:
+    <%= f.text_field :last_name %><br />
+
+    <%= f.label :username %>:
+    <%= f.text_field :username %><br />
+
+    <%= f.label :email %>:
+    <%= f.text_field :email %><br /><br />
+
+    <div id=topics_of_interest_selection>
+
+      Topics of Interest:<br>
+      <% @user.topics.each do |topic| %>
+        <%= check_box_tag 'activated[]', topic.name, checked=true %>
+        <%= label_tag 'topic_'+topic.name, topic.name %><br>
+      <% end %>
+
+      <% @display_unselected_topics.each do |topic| %>
+        <%= check_box_tag 'deactivated[]', topic.name %>
+        <%= label_tag 'topic_'+topic.name, topic.name %><br>
+      <% end %>
+
+    </div><br>
+
+    <%= f.submit :Update%>
+
+  <% end %><br>
+
+  <div class="error"> <%= flash[:error] %> </div>
+
+</div>
+
