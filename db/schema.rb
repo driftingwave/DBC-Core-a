@@ -60,8 +60,6 @@ ActiveRecord::Schema.define(:version => 20131102235155) do
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
     t.string   "auth_token"
-    t.string   "password_reset_token"
-    t.datetime "password_reset_sent_at"
   end
 
   create_table "votes", :force => true do |t|
