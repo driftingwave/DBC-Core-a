@@ -18,8 +18,11 @@ class QuestionsController < ApplicationController
 
 
   def up
-    @vote = Vote.create(answer_id: params[:answer_id], vote_type: params[:vote_type])
+    @vote = Vote.create(answer_id: params[:answer_id], user_id: current_user.id, vote_type: params[:vote_type])
+    answer = Answer.find(params[:answer_id])
+    @vote_total = answer.vote_total += @vote.vote_type
+    Answer.update(answer.id, vote_total: @vote_total )
 
-    render 'up', layout: false
+    render :json => {:total => @vote_total } 
   end
 end

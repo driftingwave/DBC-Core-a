@@ -20,10 +20,9 @@
        <span id="no_of_answers"><%= root_question.answers.count %> answers</span><br>
        <span id="answer_body">Answer: <%= answer.body %></span>
        <span id="answer_authored_by">, posted by <%= answer.user.username %></span>
-       <span id="vote_count">, <%= answer.vote_total %> votes 
-        <a id="<%= @counter %>" class="up" href="update_vote">vote up</a> 
-        <a id="<%= @counter %>" class="down" href="update_vote">vote down</a>
-      </span><br>
+       <span id="vote_count">, <%= answer.vote_total %> votes</span>
+        <a id="<%= @counter %>" class="vote" data-vote="up" href="update_vote">vote up</a> 
+        <a id="<%= @counter %>" class="vote" data-vote="down" href="update_vote">vote down</a><br>
       <span id="no_of_comments"><%= root_question.comments.count %> comments</span>
     </p>
   </div>

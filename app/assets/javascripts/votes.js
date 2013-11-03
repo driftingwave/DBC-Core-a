@@ -1,39 +1,23 @@
 $(document).ready(function(){
-  $('.up').on('click', function(event){
+  $('.vote').on('click', function(event){
     event.preventDefault();
 
+    var vote_type = ($(this).data("vote"))
+    var type = vote_type == "up" ? 1 : -1
+
     var voteId = $(this).attr('id'); 
+
 
     var answerFlagged = $("span[id= "+ voteId +"]")
 
     var answerId = answerFlagged.text()
 
-    var data = {answer_id: answerId, vote_type: 1}
+    var data = {answer_id: answerId, vote_type: type}
     
     url = "/questions/up/"
 
     $.post(url, data, function(response){
-      console.log(data)
-
-    })
-  })
-
-  $('.down').on('click', function(event){
-    event.preventDefault();
-
-    var voteId = $(this).attr('id'); 
-
-    var answerFlagged = $("span[id= "+ voteId +"]")
-
-    var answerId = answerFlagged.text()
-
-    var data = {answer_id: answerId, vote_type: -1}
-    
-    url = "/questions/up/"
-
-    $.post(url, data, function(response){
-      console.log(data)
-
+      $("#vote_count").html(", " + response.total + " votes")
     })
   })
 })
