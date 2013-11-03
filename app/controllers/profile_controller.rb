@@ -2,9 +2,9 @@ class ProfileController < ApplicationController
 
   def update
     @user = current_user
-
     new_profile = params[:profile]
 
+    # user case: changes first name, last name, and or username
     compare_attributes = {}
     compare_attributes[:first_name] = []
     compare_attributes[:last_name]  = []
@@ -29,10 +29,10 @@ class ProfileController < ApplicationController
       end
     end
 
-    # user case invalid email
+    # user case: enters invalid email
     if new_profile["email"] != ""
       if (new_profile["email"] =~ /\w+@\w+\.\w{2,3}/).nil?
-        flash[:error] = "Invalid email or password"
+        flash[:error] = "Invalid email"
         redirect_to profile_path(@user)
       else
         @user.update_attribute(:email, new_profile[:email])
@@ -40,35 +40,32 @@ class ProfileController < ApplicationController
       end
     end
 
+    # user case: changes selected topics
+    user_topic_objects = @user.topics
+    user_topic_names = []
+    user_topic_objects.each do |topic|
+      user_topic_names << topic.name
+    end
 
-    # user case change password
+    user_topic_names.uniq
+    selected_topic_names = []
+    selected_topic_names << (params["activated"])
+    selected_topic_names.push(params["deactivated"]) if params["deactivated"]
+    selected_topic_names.flatten!
 
+    selected_topic_names.each do |topic|
+      unless user_topic_names.include?(topic)
+        UserTopic.create user_id: @user.id, topic_id: Topic.find_by_name(topic).id
+      end
+    end
 
+    user_topic_names.each do |topic|
+      unless selected_topic_names.include?(topic)
+        current_topic = Topic.find_by_name(topic)
+        UserTopic.delete_all("user_id = #{@user.id} AND topic_id = #{current_topic.id}")
+      end
+    end
 
-    # if params[:password] == ""
-    #   redirect_to profile_path
-    # else User.update(@user.id, params[:user])
-    #   redirect_to user_path(@user)
-    # end
-
+    # impletment feature: change password
   end
 end
-
-
-
-    # puts "!!!!!!!!!!!!!!!!!!!!!!!!!"
-    # p @user
-    # puts "!!!!!!!!!!!!!!!!!!!!!!!!!"
-
-# p params
-# {"utf8"=>"✓", "_method"=>"put",
-#   "authenticity_token"=>"6RVlrOhv+qOFvQP2mnSbmwJN+VZE8CW9IoHeLxefTyo=",
-#   "profile"=>{"first_name"=>"James", "last_name"=>"Howard", "username"=>"how", "email"=>"how@email.com", "password"=>"", "password_confirmation"=>""},
-#   "activated"=>["Sports", "Science", "Culture"],
-#   "commit"=>"Update",
-#   "action"=>"update",
-#   "controller"=>"profile",
-#   "id"=>"1"}
-
-# p @user
-# <User id: 1, first_name: "James", last_name: "Howard", username: "how", email: "how@email.com", password_digest: "$2a$10$n/gNF6Qv99F3bDPbVuizLeRUIbxLGANme.YlRxLz8DPO...", created_at: "2013-11-02 00:18:54", updated_at: "2013-11-02 00:18:54">
