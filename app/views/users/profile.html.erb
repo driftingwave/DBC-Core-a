@@ -2,6 +2,8 @@
 
   <%= form_for @user, :as => :profile, url: profile_path(@user), :method => :put do |f| %>
 
+    <h3>Update your details:</h3>
+
     <%= f.label :first_name %>:
     <%= f.text_field :first_name %><br />
 
@@ -12,13 +14,7 @@
     <%= f.text_field :username %><br />
 
     <%= f.label :email %>:
-    <%= f.text_field :email %><br />
-
-    <%= f.label :password %>:
-    <%= f.password_field :password %><br />
-
-    <%= f.label :password_confirmation %>:
-    <%= f.password_field :password_confirmation %><br /><br />
+    <%= f.text_field :email %><br /><br />
 
     <div id=topics_of_interest_selection>
 

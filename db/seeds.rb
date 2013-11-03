@@ -29,15 +29,15 @@ Topic.create name: "Culture"
 #   UserTopic.create user_id: user_id.sample, topic_id: topic_id.sample
 # end
 
-UserTopic.create user_id: 1, topic_id: rand(1..5)
-UserTopic.create user_id: 1, topic_id: rand(1..5)
-UserTopic.create user_id: 1, topic_id: rand(1..5)
-UserTopic.create user_id: 2, topic_id: rand(1..5)
-UserTopic.create user_id: 2, topic_id: rand(1..5)
-UserTopic.create user_id: 2, topic_id: rand(1..5)
-UserTopic.create user_id: 3, topic_id: rand(1..5)
-UserTopic.create user_id: 3, topic_id: rand(1..5)
-UserTopic.create user_id: 3, topic_id: rand(1..5)
+UserTopic.create user_id: 1, topic_id: 2
+UserTopic.create user_id: 1, topic_id: 4
+UserTopic.create user_id: 1, topic_id: 5
+UserTopic.create user_id: 2, topic_id: 1
+UserTopic.create user_id: 2, topic_id: 3
+UserTopic.create user_id: 2, topic_id: 5
+UserTopic.create user_id: 3, topic_id: 2
+UserTopic.create user_id: 3, topic_id: 3
+UserTopic.create user_id: 3, topic_id: 4
 
 # 80.times do
 # Question.create topic_id: topic_id, user_id: user_id, body: Faker:
