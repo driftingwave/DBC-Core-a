@@ -1,21 +1,35 @@
-User.create first_name: "Ryan", last_name: "Kelley", username: "rskelley9", email: "rskelley9@gmail.com", password: "password"
+User.create(first_name: "Ryan", last_name: "Kelley", username: "rskelley9", email: "rskelley9@gmail.com", password: "password")
 User.create first_name: "bob", last_name: "bob", username: "bob", email: "bob@bob.bob", password: "bobbob"
 
-20.times do
-  number_array = (1..100).to_a
+# 20.times do
 
-  first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
-  username = (Faker::Name.first_name) + "#{number_array.sample}"
-  email = Faker::Internet.email
-  password = "Password"
+#   first_name = Faker::Name.first_name
+#   last_name = Faker::Name.last_name
+#   username = Faker::Name.first_name
+#   email = Faker::Internet.email
+#   password = "Password"
 
-  User.create(first_name: first_name, last_name: last_name, username: username, email: email, password: password)
-end
+#   User.create(first_name: first_name, last_name: last_name, username: username, email: email, password: password)
+# end
 
 User.create first_name: "James", last_name: "Howard", username: "how", email: "how@email.com", password: "password"
-User.create first_name: "Ollie", last_name: "Brown", username: "o", email: "ols@email.com", password: "password"
+User.create first_name: "Ollie", last_name: "Brown", username: "o", email: "ols@email.com", password: "passwword"
 User.create first_name: "Joan", last_name: "Smith", username: "yollo", email: "yollo@email.com", password: "password"
+User.create first_name: "Jay", last_name: "Honda", username: "him", email: "him@email.com", password: "pawssword"
+User.create first_name: "Tang", last_name: "Bron", username: "oo", email: "olss@email.com", password: "passwword"
+User.create first_name: "Josan", last_name: "Smisth", username: "yolslo", email: "yollso@email.com", password: "psassword"
+User.create first_name: "Jingle", last_name: "Johnson", username: "jingle", email: "jingle@email.com", password: "password"
+User.create first_name: "Finger", last_name: "Hatman", username: "yollo", email: "yollo@email.com", password: "password"
+User.create first_name: "Ryam", last_name: "Jeter", username: "jeter12", email: "jeter123@email.com", password: "password"
+User.create first_name: "Paul", last_name: "Carrillo", username: "carrillo", email: "caroools@email.com", password: "password"
+User.create first_name: "JZ", last_name: "Z", username: "jz123", email: "jz123@email.com", password: "passwword"
+User.create first_name: "James", last_name: "Howard", username: "how", email: "how@email.com", password: "passwword"
+User.create first_name: "Conner", last_name: "Berry", username: "boo", email: "bools@email.com", password: "pawssword"
+User.create first_name: "Cling", last_name: "Wrap", username: "clinger", email: "clingon@email.com", password: "pwassword"
+User.create first_name: "Jaws", last_name: "Jam", username: "jz12e3", email: "jz123@email.com", password: "passwword"
+User.create first_name: "Joe", last_name: "Shmo", username: "heow", email: "hweow@email.com", password: "passwword"
+User.create first_name: "Leyla", last_name: "Limmer", username: "bowo", email: "booels@email.com", password: "pawssword"
+User.create first_name: "Lora", last_name: "Leaf", username: "lilbowow", email: "clingon@email.com", password: "pwassword"
 
 Topic.create name: "UI, JQuery/Javascript, AJAX"
 Topic.create name: "Careers and Employment"
@@ -44,6 +58,35 @@ UserTopic.create user_id: 2, topic_id: 5
 UserTopic.create user_id: 3, topic_id: 2
 UserTopic.create user_id: 3, topic_id: 3
 UserTopic.create user_id: 3, topic_id: 4
+
+UserTopic.create user_id: 1, topic_id: 2
+UserTopic.create user_id: 1, topic_id: 4
+UserTopic.create user_id: 1, topic_id: 5
+UserTopic.create user_id: 2, topic_id: 1
+UserTopic.create user_id: 2, topic_id: 3
+UserTopic.create user_id: 2, topic_id: 5
+UserTopic.create user_id: 3, topic_id: 2
+UserTopic.create user_id: 3, topic_id: 3
+UserTopic.create user_id: 3, topic_id: 4
+
+UserTopic.create user_id: 4, topic_id: 9
+UserTopic.create user_id: 5, topic_id: 10
+UserTopic.create user_id: 6, topic_id: 10
+UserTopic.create user_id: 7, topic_id: 8
+UserTopic.create user_id: 8, topic_id: 7
+UserTopic.create user_id: 9, topic_id: 6
+UserTopic.create user_id: 10, topic_id: 5
+UserTopic.create user_id: 11, topic_id: 4
+UserTopic.create user_id: 12, topic_id: 3
+UserTopic.create user_id: 13, topic_id: 7
+UserTopic.create user_id: 14, topic_id: 6
+UserTopic.create user_id: 15, topic_id: 5
+UserTopic.create user_id: 16, topic_id: 4
+UserTopic.create user_id: 17, topic_id: 3
+UserTopic.create user_id: 18, topic_id: 3
+UserTopic.create user_id: 19, topic_id: 7
+UserTopic.create user_id: 20, topic_id: 6
+
 
 # 80.times do
 #   Question.create topic_id: topic_id, user_id: user_id, body: Faker:
@@ -140,15 +183,17 @@ Answer.create question_id: rand(1..60), user_id: rand(1..20), vote_total: rand(1
 Answer.create question_id: rand(1..60), user_id: rand(1..20), vote_total: rand(1..20), body: "Good question. The ham of the matter comes down to fundamentals."
 Answer.create question_id: rand(1..60), user_id: rand(1..20), vote_total: rand(1..20), body: "git push origin master -force"
 Answer.create question_id: rand(1..60), user_id: rand(1..20), vote_total: rand(1..20), body: "git rebass --BernieLean"
+Answer.create question_id: rand(1..60), user_id: 1, vote_total: rand(1..20), body: "I don't think that's a good idea."
 
-Comment.create answer_id: rand(1..11), user_id: rand(1..3), body: "I’ve worked with a ton of programmers in the past, and most of them don’t know a lot about web design. My brother, for example, is an insanely good programmer. However, every time I see his web applications, I have a hard time seeing past how ugly they are (sorry Mark)."
-Comment.create answer_id: rand(1..11), user_id: rand(1..3), body: "Hey guys, who wants Chipotle?"
-Comment.create answer_id: rand(1..11), user_id: rand(1..3), body: "You should ask Matt Jones."
-Comment.create answer_id: rand(1..11), user_id: rand(1..3), body: "No, you should use map."
-Comment.create answer_id: rand(1..11), user_id: rand(1..3), body: "Just iterate through the array and then recurse."
-Comment.create answer_id: rand(1..11), user_id: rand(1..3), body: "There are many ways that you can create menus for your website. The way I used to do it was by using tables and having a menu item for every menu item. This way I had come to find out is the hard way. Let’s talk about the easy way."
-Comment.create answer_id: rand(1..11), user_id: rand(1..3), body: "It is not reasonable to italicize just part of a word, especially when you're dealing with code and names often appear with multiple underscores. Therefore, GFM ignores multiple underscores in words."
-Comment.create answer_id: rand(1..11), user_id: rand(1..3), body: "Git will work better if you start committing more and branching less. Branches are your enemy. Commits are too, but there's sort of a lesser enemy. Watch your back."
+
+Comment.create(answer_id: rand(1..11), user_id: rand(1..20), body: "Hey guys, who wants Chipotle?")
+Comment.create(answer_id: rand(1..11), user_id: rand(1..20), body: "You should ask Matt Jones.")
+Comment.create(answer_id: rand(1..11), user_id: rand(1..20), body: "You should check out Stack Overflow.")
+Comment.create(answer_id: rand(1..11), user_id: rand(1..20), body: "RKelley.")
+Comment.create(answer_id: rand(1..11), user_id: rand(1..20), body: "No, you should use map.")
+Comment.create(answer_id: rand(1..11), user_id: rand(1..20), body: "Just iterate through the array and then recurse.")
+Comment.create(answer_id: rand(1..11), user_id: rand(1..20), body: "It is not reasonable to italicize just part of a word, especially when you're dealing with code and names often appear with multiple underscores. Therefore, GFM ignores multiple underscores in words.")
+Comment.create(answer_id: rand(1..11), user_id: rand(1..20), body: "Git will work better if you start committing more and branching less. Branches are your enemy. Commits are too, but there's sort of a lesser enemy. Watch your back.")
 
 
 Vote.create answer_id: rand(1..12), user_id: rand(1..20), vote_type: [-1, 1].sample
