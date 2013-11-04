@@ -33,3 +33,21 @@
 .answer_form {
 }
 
+
+
+html {
+	background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNWNz3M3mQXUZ0ISU_DSBeApIGGFGRHGwJ6GUSTcgEkSXIQByprg');
+
+	background-repeat: no-repeat;
+	background-size: 300px;
+	background-attachment: fixed;
+	background-position: 85%, 0%; 
+	position: relative;
+	transform: rotate(90deg);
+	filter:alpha(opacity=20);
+	font-family: 'Lato', sans-serif;
+	color: black;
+}
+
+
+'../images/socrates.png'
