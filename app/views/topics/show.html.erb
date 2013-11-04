@@ -1,0 +1,65 @@
+<div class="container">
+
+  <div id="topic_title">
+    <h3><%= @topic.name %></h3>
+  </div>
+
+  <div id="topic_questions">
+    <% @counter = 0 %>
+    <% @topic_questions.each do |question| %>
+      <% @counter += 1 %>
+
+      <% top_answer = question.answers.order("vote_total DESC").first %>
+      <% answer_count = question.answers.count %>
+      <% comment_count = question.comments.count %>
+
+      <h4 class="question_link">
+        <%= link_to question.body, question_path(question.id) %>
+      </h4>
+
+      <div id="question_summary">
+
+        <span id="question_authored_by">
+          posted by <%= question.user.username %>
+        </span><br>
+
+        <span id="total_answers">
+          <%= answer_count %>
+          <% if answer_count == 1 %>
+            <%= " answer" %>
+          <% else %>
+            <%= " answers" %>
+          <% end %>
+        </span>
+
+        <span id="total_comments">
+          , <%= comment_count %>
+          <% if comment_count == 1 %>
+            <%= " comment" %>
+          <% else %>
+            <%= " comments" %>
+          <% end %>
+        </span><br>
+
+        <% if top_answer %>
+          <span id="top_answer">
+            Top answer: <b><%= top_answer.body %></b>
+          </span>
+
+          <span id="vote_count">
+            , <%= top_answer.vote_total %> votes,
+          </span>
+
+          <a id="<%= @counter %>" class="vote" data-vote="up" href="update_vote">
+            vote up
+          </a>,
+          <a id="<%= @counter %>" class="vote" data-vote="down" href="update_vote">
+            vote down
+          </a><br>
+        <% end %><br>
+
+      </div>
+    <% end %>
+  </div>
+
+</div>
