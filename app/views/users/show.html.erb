@@ -8,25 +8,52 @@
 
     <% @counter = 0 %>
     <% @answers_to_be_displayed.each do |answer| %>
-    <% @counter += 1 %>
-    <% root_question = answer.question %>
-    <div id="topic_and_question">
-      <h4 class="display_question"><%= answer.topic.name %>: <%= link_to(root_question.body, question_path(answer.question_id) )%></h4>
-    </div>
+      <% @counter += 1 %>
+      <% root_question = answer.question %>
+      <div id="topic_and_question">
+        <h4>
+          <span class="topic_link">
+            <%= link_to answer.topic.name, topic_path(answer.topic.id) %>:
+          </span>
+          <span class="question_link">
+            <%= link_to(root_question.body, question_path(answer.question_id))%>
+          </span>
+        </h4>
+      </div>
 
-    <div id="<%= @counter %>" >
-      <p>
-       <span id="<%= @counter %>" class="answer"><%= answer.id %></span><br>
-       <span id="no_of_answers"><%= root_question.answers.count %> answers</span><br>
-       <span id="answer_body">Answer: <%= answer.body %></span>
-       <span id="answer_authored_by">, posted by <%= answer.user.username %></span>
-       <span class="vote_count">, <%= answer.vote_total %> votes</span>
-        <a id="<%= @counter %>" class="vote" data-vote="up" href="update_vote">vote up</a> 
-        <a id="<%= @counter %>" class="vote" data-vote="down" href="update_vote">vote down</a><br>
-      <span id="no_of_comments"><%= root_question.comments.count %> comments</span>
-    </p>
+      <div id="<%= @counter %>">
+
+        <span id="<%= @counter %>" class="answer">
+          <%= answer.id %>
+        </span><br>
+
+        <span id="no_of_answers">
+          <%= root_question.answers.count %> answers
+        </span><br>
+
+        <span id="answer_body">
+          Top answer: <%= answer.body %>
+        </span>
+
+        <span id="answer_authored_by">
+          , posted by <%= answer.user.username %>
+        </span>
+
+        <span id="vote_count">
+          , <%= answer.vote_total %> votes
+        </span>
+
+        <a id="<%= @counter %>" class="vote" data-vote="up" href="update_vote">
+          vote up
+        </a>
+        <a id="<%= @counter %>" class="vote" data-vote="down" href="update_vote">
+          vote down
+        </a><br>
+
+        <span id="no_of_comments">
+          <%= root_question.comments.count %> comments
+        </span>
+      </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
-
 </div>
