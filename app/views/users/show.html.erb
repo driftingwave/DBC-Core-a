@@ -11,7 +11,7 @@
     <% @counter += 1 %>
     <% root_question = answer.question %>
     <div id="topic_and_question">
-      <h4 class="display_question"><%= answer.topic.name %>: <%= link_to(root_question.body, question_path(answer.question_id) )%></h4>
+      <h4 class="display_question"><%= link_to answer.topic.name, topic_path(answer.topic.id) %>: <%= link_to(root_question.body, question_path(answer.question_id) )%></h4>
     </div>
 
     <div id="<%= @counter %>" >
