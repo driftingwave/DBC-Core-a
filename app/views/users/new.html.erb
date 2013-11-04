@@ -9,8 +9,9 @@
     <p> Password: <br> <%= f.password_field :password %> </p>
     <p> Confirm Password: <br> <%= f.password_field :password_confirmation %> </p>
       <% @topics.each do |topic| %>
-      <%= label_tag 'topic_'+topic.name, topic.name %>
-    <div><%= check_box_tag 'activated[]', topic.name -%></div>
+      
+    <%= check_box_tag 'activated[]', topic.name -%>
+    <%= label_tag 'topic_'+topic.name, topic.name %> <br>
       <% end %>
       <%= f.submit :Signup %>
       <% end %>
