@@ -1,28 +1,33 @@
-<input id="answer" type="button" value="Drop Some Knowledge"lignment="center" />
+<input class="button" id="answer" type="button" value="Drop Some Knowledge">
 
 <span class="answerformarea" id="answerformarea">
-
-<%= form_for :answer, url: answers_path, method: :post  do |f| %>
-<%= f.label "Answer: " %><br>
-<%= f.text_area :body, rows: 2, cols: 100, :placeholder => "Enter your answer here..." %><br>
-<%=  f.submit :ANSWER %>
-<% end %>
-<br>
+  <%= form_for :answer, url: answers_path, method: :post  do |f| %>
+  <%= f.label "Answer: " %><br>
+  <%= f.text_area :body, rows: 2, cols: 100, :placeholder => "Enter your answer here..." %><br>
+  <%=  f.submit :ANSWER %>
+  <% end %>
 </span>
+<br>
 
-<h2><%= @question.body%></h2>
+<div class="question_show">
+<h2 class="question"><%= @question.body%></h2>
 
-
+<% @counter = 0 %>
 <ul>
   <%@question.answers.each do |answer|%>
-  <li>
-    <div class="answer"><%= answer.body%></div>
-    <div class="responder">Posted By: <%=User.find(answer.user_id).username.capitalize%></div>
-    <div class="votes">Total Votes: <%= answer.vote_total %></div>
+  <% @counter += 1 %>
 
-    <div class="up"><%= link_to image_tag('thumbs-up.pgn', size: '16x20'), questions_path%></div>
+  <li class="bullet">
+    <div id="<%= @counter %>" >
+     <span id="<%= @counter %>" class="answer"><%= answer.id %></span>
+     <div class="answers"><%= answer.body %></div>
+     <div class="responder">Posted By: <%= User.find(answer.user_id).username.capitalize%></div>
+     Total Votes:<span class="vote_count"> <%= answer.vote_total %> votes</span>
 
+     <a id="<%= @counter %>" class="vote" data-vote="up" href="update_vote">vote up</a>
+     <a id="<%= @counter %>" class="vote" data-vote="down" href="update_vote">vote down</a>
 
-  </li>
-  <% end %>
-</ul>
+   </li>
+   <% end %>
+ </ul>
+</div>
