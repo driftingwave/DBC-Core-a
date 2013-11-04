@@ -1,3 +1,7 @@
+.answer {
+	visibility: hidden;
+}
+
 .error{
 	color: red;
 }
@@ -22,6 +26,8 @@
 	padding: 0px 40px;
 }
 
-.answer {
-	visibility: hidden;
+.topic_link a{
+	color: purple;
+	text-decoration: none;
 }
+

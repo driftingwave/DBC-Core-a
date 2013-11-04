@@ -12,6 +12,8 @@ Quora::Application.routes.draw do
   post "/questions/up", as: "up_question"
    get "/questions/up", as: "up_question"
 
+  resources :topics
+
   root to: "home#index"
 
   # The priority is based upon order of creation:
