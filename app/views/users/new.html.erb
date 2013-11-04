@@ -1,5 +1,5 @@
 <div class="sign_up">
-  <h1>Sign Up</h1>
+  <h1 class="sign_up_title">Sign Up</h1>
   <h2> <%= flash[:error] %> </h2>
   <%= form_for(:user, url: {action: 'create'}) do |f| %>
     <p> First Name: <br> <%= f.text_field :first_name %> </p>
@@ -9,9 +9,8 @@
     <p> Password: <br> <%= f.password_field :password %> </p>
     <p> Confirm Password: <br> <%= f.password_field :password_confirmation %> </p>
       <% @topics.each do |topic| %>
-      
-    <%= check_box_tag 'activated[]', topic.name -%>
-    <%= label_tag 'topic_'+topic.name, topic.name %> <br>
+        <%= check_box_tag 'activated[]', topic.name -%>
+        <%= label_tag 'topic_'+topic.name, topic.name %><br>
       <% end %>
       <%= f.submit :Signup %>
       <% end %>

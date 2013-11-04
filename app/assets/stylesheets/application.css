@@ -103,7 +103,15 @@ margin-left: 3%;
 	top:1px;
 }
 
+.login_title {
+	color: #2C09B8;
+	text-decoration: none;
+}
 
+
+.sign_up_title {
+	color: #2C09B8;
+}
 
 html {
 	background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNWNz3M3mQXUZ0ISU_DSBeApIGGFGRHGwJ6GUSTcgEkSXIQByprg');
