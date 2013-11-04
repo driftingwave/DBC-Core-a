@@ -230,6 +230,17 @@ margin-left: 3%;
 	margin-left: 30px;
 }
 
+.sign_up {
+	position: relative;
+	width: 400px;
+	border: 1px solid grey;
+	background-color: #DDD;  
+	text-align: center;
+	border-top: 5px solid red;
+	margin-top: 20px;
+	margin-left: 30px;
+}
+
 html {
 	background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNWNz3M3mQXUZ0ISU_DSBeApIGGFGRHGwJ6GUSTcgEkSXIQByprg');
 
