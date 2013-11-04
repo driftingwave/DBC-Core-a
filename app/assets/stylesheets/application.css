@@ -51,9 +51,15 @@ margin-left: 3%;
 	list-style: none;
 }
 
+
 .answers {
 	font-weight: bold;
 	font-style: italic;
+}
+
+.login_title {
+	color: #2C09B8;
+	text-decoration: none;
 }
 
 .button {
@@ -113,6 +119,10 @@ margin-left: 3%;
 	color: #2C09B8;
 }
 
+.sign_up_title {
+	color: #2C09B8;
+}
+
 html {
 	background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNWNz3M3mQXUZ0ISU_DSBeApIGGFGRHGwJ6GUSTcgEkSXIQByprg');
 
@@ -127,5 +137,3 @@ html {
 	color: black;
 }
 
-
-'../images/socrates.png'
