@@ -1,13 +1,15 @@
 <input class="button" id="answer" type="button" value="Drop Some Knowledge">
 
-<span class="answerformarea" id="answerformarea">
-  <%= form_for :answer, url: answers_path, method: :post  do |f| %>
-  <%= f.label "Answer: " %><br>
-  <%= f.text_area :body, rows: 2, cols: 100, :placeholder => "Enter your answer here..." %><br>
-  <%=  f.submit :ANSWER %>
-  <% end %>
-</span>
-<br>
+<div id="answer_area">
+  <span class="answerformarea" id="answerformarea">
+    <%= form_for :answer, url: answers_path, method: :post  do |f| %>
+    <%= f.label "Answer: " %><br>
+    <%= f.text_area :body, rows: 2, cols: 100, :placeholder => "Enter your answer here..." %><br>
+    <%=  f.submit :ANSWER %>
+    <% end %>
+  </span>
+  <br>
+</div>
 
 <div class="question_show">
 <h2 class="question"><%= @question.body%></h2>
