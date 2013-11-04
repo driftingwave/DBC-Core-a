@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
   def new
     #where the magic happens
     @user = User.find(session[:user_id])
-    @topics = User.topics
+    @topics = Topic.all
   end
 
   #from question link in users show page
@@ -20,6 +20,15 @@ class QuestionsController < ApplicationController
 
   end
 
+  def create
+    
+    @user = User.find(session[:user_id])
+    p params
+    @question = Question.new(topic_id: params[:topic_id], user_id: current_user.id, body: params[:question][:body])
+    @question.save
+    # render 'show'
+    redirect_to user_path(current_user)
+  end
 
   def up
     @vote = Vote.create(answer_id: params[:answer_id], user_id: current_user.id, vote_type: params[:vote_type])
