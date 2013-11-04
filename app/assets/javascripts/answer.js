@@ -4,17 +4,19 @@ $(document).ready(function(){
 
   answerForm = $("#answerformarea")
 
+  var removed = $(answerForm).remove();
+
   answerButton.on('click', function(event){
+
     event.preventDefault();
 
+    removed.insertAfter(answerButton);
+
     $(answerForm).removeClass('answerformarea')
-    answerButton.addClass('answerformarea')
+
+    answerButton.detach()
 
   })
-// end of answer button
+
 
 });
-// end of function
-
-// <span id="answer">
-// <%= button_to "Offer Your Answer" %>
