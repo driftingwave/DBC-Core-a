@@ -17,7 +17,7 @@
     url = "/questions/up/"
 
     $.post(url, data, function(response){
-      $("div#" + voteId + " .vote_count").html(", " + response.total + " votes")
+      $("div#" + voteId + " .vote_count").html("  " + response.total + " votes")
     })
   })
 })

@@ -33,3 +33,12 @@
 .answer_form {
 }
 
+.bullet {
+	list-style: none;
+}
+
+.answers {
+	font-weight: bold;
+	font-style: italic;
+}
+
