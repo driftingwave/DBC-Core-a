@@ -5,7 +5,15 @@
 .navbar{
 	background-color: black;
 	line-height: 40px;
-	border-bottom: 5px solid #A31903;
+	border-bottom: 5px solid #DC143C;
+	font-family: 'Arvo', serif;
+}
+
+.footer{
+	background-color: black;
+	line-height: 40px;
+	border-bottom: 5px solid #DC143C;
+	font-family: 'Arvo', serif;
 }
 
 .question_show{
@@ -23,12 +31,12 @@ form[action="/questions"]{
 	position:relative;
 	width:550px;
 	height:450px;
-	font-family: Tahoma, Geneva, sans-serif;
+	font-family: 'Oxygen', sans-serif;
 	font-size: 14px;
 	font-style: italic;
 	line-height: 24px;
 	font-weight: bold;
-	color: #A31903;
+	color:#DC143C;
 	font-size: 20px;
 	text-decoration: none;
 	-webkit-border-radius: 10px;
@@ -48,12 +56,12 @@ form[action="/answers"]{
 	position:relative;
 	width:550px;
 	height:100px;
-	font-family: Tahoma, Geneva, sans-serif;
+	font-family:'Oxygen', sans-serif;
 	font-size: 20px;
 	font-style: italic;
 	line-height: 24px;
 	font-weight: bold;
-	color: #A31903;
+	color:#DC143C;
 	font-size: 20px;
 	text-decoration: none;
 	-webkit-border-radius: 10px;
@@ -86,6 +94,7 @@ input[value="ANSWER"]{
 	display:inline-block;
 	color:#ffffff;
 	font-size:12px;
+	font-family: 'Oxygen', sans-serif;;
 	font-weight:normal;
 	height:40px;
 	line-height:35px;
@@ -110,7 +119,7 @@ input[value="Save Question"]{
 	/*background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffc477), color-stop(1, #fb9e25) );*/
 	/*	background:-moz-linear-gradient( center top, #ffc477 5%, #fb9e25 100% );*/
 	/*filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc477', endColorstr='#fb9e25');*/
-	background-color:#A31903;
+	background-color:#DC143C;
 	-webkit-border-top-left-radius:20px;
 	-moz-border-radius-topleft:20px;
 	border-top-left-radius:20px;
@@ -127,7 +136,7 @@ input[value="Save Question"]{
 	/*border:3px solid #eeb44f;*/
 	display:inline-block;
 	color:#ffffff;
-	/*font-family:Arial Black;*/
+	font-family:'Oxygen', sans-serif;
 	font-size:16px;
 	font-weight:normal;
 	/*	font-style:italic;*/
@@ -149,11 +158,12 @@ input[value="Save Question"]:hover{
 
 .answers{
 	font-size: 20px;
+	font-family: 'Oxygen', sans-serif;
 }
 
 .vote_count{
 	font-weight: bold;
-	color: #A31903;
+	color:#DC143C;
 }
 
 .navbar a{
@@ -199,6 +209,7 @@ input[value="Save Question"]:hover{
 .answers {
 	font-weight: bold;
 	font-style: italic;
+	font-family: 'Oxygen', sans-serif;
 }
 
 .login_title {
@@ -232,7 +243,7 @@ input[value="Save Question"]:hover{
 	/*border:3px solid #eeb44f;*/
 	display:inline-block;
 	color:#ffffff;
-	/*font-family:Arial Black;*/
+	font-family:'Oxygen', sans-serif;
 	font-size:16px;
 	font-weight:normal;
 	/*	font-style:italic;*/
@@ -260,6 +271,16 @@ input[value="Save Question"]:hover{
 	text-decoration: none;
 }
 
+.logo{
+
+font-family: Verdana, sans-serif;
+line-height: 1em;
+color: #DC143C;
+font-style:italic;
+font-size: 50px;
+text-shadow:0px 0px 0 rgb(137,-1,-23),1px 1px 0 rgb(121,-17,-39),2px 2px 0 rgb(105,-33,-55),3px 3px 0 rgb(89,-49,-71),4px 4px 0 rgb(73,-65,-87),5px 5px 0 rgb(57,-81,-103), 6px 6px 0 rgb(41,-97,-119),7px 7px 6px rgba(0,0,0,0.25),7px 7px 1px rgba(0,0,0,0.5),0px 0px 6px rgba(0,0,0,.2);
+
+}
 
 .sign_up_title {
 	color: #2C09B8;
