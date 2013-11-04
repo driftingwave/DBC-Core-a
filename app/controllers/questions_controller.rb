@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
   def show
     @user = current_user
     @question = Question.find(params[:id])
-
+    session[:question_id] = @question.id
 
   end
 

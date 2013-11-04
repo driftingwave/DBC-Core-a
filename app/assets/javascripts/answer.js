@@ -2,12 +2,13 @@ $(document).ready(function(){
 
   answerButton = $('#answer')
 
-  answerForm = $("#answerform")
+  answerForm = $("#answerformarea")
 
   answerButton.on('click', function(event){
     event.preventDefault();
 
-    $(answerForm).removeClass('answerform')
+    $(answerForm).removeClass('answerformarea')
+    answerButton.addClass('answerformarea')
 
   })
 // end of answer button
