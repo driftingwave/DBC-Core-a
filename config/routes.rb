@@ -8,6 +8,7 @@ Quora::Application.routes.draw do
 
   resources :user_sessions
   resources :questions
+  resources :answers
   resources :votes
   post "/questions/up", as: "up_question"
    get "/questions/up", as: "up_question"

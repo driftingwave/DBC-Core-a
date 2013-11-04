@@ -11,8 +11,12 @@ class QuestionsController < ApplicationController
     @topics = User.topics
   end
 
+  #from question link in users show page
+
   def show
-    @question = Question.find(params[:id]) 
+    @user = current_user
+    @question = Question.find(params[:id])
+    session[:question_id] = @question.id
 
   end
 
@@ -23,6 +27,6 @@ class QuestionsController < ApplicationController
     @vote_total = answer.vote_total += @vote.vote_type
     Answer.update(answer.id, vote_total: @vote_total )
 
-    render :json => {:total => @vote_total } 
+    render :json => {:total => @vote_total }
   end
 end

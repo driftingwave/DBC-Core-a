@@ -1,11 +1,11 @@
-$(document).ready(function(){
+  $(document).ready(function(){
   $('.vote').on('click', function(event){
     event.preventDefault();
 
     var vote_type = ($(this).data("vote"))
     var type = vote_type == "up" ? 1 : -1
 
-    var voteId = $(this).attr('id'); 
+    var voteId = $(this).attr('id');
 
 
     var answerFlagged = $("span[id= "+ voteId +"]")
@@ -13,7 +13,7 @@ $(document).ready(function(){
     var answerId = answerFlagged.text()
 
     var data = {answer_id: answerId, vote_type: type}
-    
+
     url = "/questions/up/"
 
     $.post(url, data, function(response){
