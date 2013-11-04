@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
   def new
     #where the magic happens
     @user = User.find(session[:user_id])
-    @topics = User.topics
+    @topics = Topic.all
   end
 
   def show
@@ -16,6 +16,9 @@ class QuestionsController < ApplicationController
 
   end
 
+  def create
+    @question = Question.new(params[])
+  end
 
   def up
     @vote = Vote.create(answer_id: params[:answer_id], user_id: current_user.id, vote_type: params[:vote_type])

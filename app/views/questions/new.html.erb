@@ -1,1 +1,8 @@
-<h1> Where Are Questions by User's Topic is </h1>
+<div class="new_question_form">
+  <h1> So you want to ask a question, do ya?</h1>
+    <%= form_for(:question, url:{action:'create'}) do |f| %>
+    <%= select_tag(:topic_id, options_for_select(@topics.collect{ |t| [t.name, t.id]})) %>
+    <p>Question: <br><%= f.text_area :body %></p><br>
+    <%= f.submit %>
+    <% end %>
+</div>
