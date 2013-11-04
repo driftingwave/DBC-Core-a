@@ -3,7 +3,7 @@
 <span class="answerformarea" id="answerformarea">
   <%= form_for :answer, url: answers_path, method: :post  do |f| %>
   <%= f.label "Answer: " %><br>
-  <%= f.text_area :body, rows: 2, cols: 100, :placeholder => "Enter your answer here..." %><br>
+  <%= f.text_area :body, rows: 2, cols: 60, :placeholder => "Enter your answer here..." %><br>
   <%=  f.submit :ANSWER %>
   <% end %>
 </span>
