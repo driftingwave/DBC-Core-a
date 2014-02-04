@@ -6,7 +6,8 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-
+gem 'factory_girl'
+gem 'faker'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
